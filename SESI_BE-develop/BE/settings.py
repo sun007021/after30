@@ -1,21 +1,21 @@
 import os
 from pydantic_settings import BaseSettings, SettingsConfigDict
 
-__AUTHOR__ = "IML"
-__VERSION__ = "0.7.1"
+__AUTHOR__ = "sun007021"
+__VERSION__ = "0.0.1"
 
-APP_NAME = "IMFast"
+APP_NAME = "After30"
 BASE_DIR = os.path.abspath(os.path.dirname(__file__))
 
 
 class Settings(BaseSettings):
     # Description settings
     app_name: str = APP_NAME
-    description: str = "Welcome to IMFast."
-    term_of_service: str = "https://github.com/iml1111"
+    description: str = "Welcome to After30."
+    term_of_service: str = "https://github.com/sun007021"
     contact_name: str = __AUTHOR__
-    contact_url: str = "https://github.com/iml1111"
-    contact_email: str = "shin10256@gmail.com"
+    contact_url: str = "https://github.com/sun007021"
+    contact_email: str = "sun007021@gmail.com"
     # Documentation url
     docs_url: str = "/docs"
     redoc_url: str = "/redoc"
@@ -30,11 +30,12 @@ class Settings(BaseSettings):
     model_config = SettingsConfigDict(
         env_prefix=f"{APP_NAME.upper()}_",
         # default: development env
-        env_file=BASE_DIR + '/dev.env',
-        env_file_encoding='utf-8',
+        env_file=BASE_DIR + "/dev.env",
+        env_file_encoding="utf-8",
     )
 
 
 class TestSettings(Settings):
     """Test settings"""
+
     slow_api_time: float = 1.0
